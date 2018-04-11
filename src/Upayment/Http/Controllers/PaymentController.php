@@ -13,7 +13,7 @@ class PaymentController extends Controller
     /**
      * @param Request $request
      */
-    public function paymentConfirmation(Request $request)
+    public function onPaymentConfirm(Request $request)
     {
         return view('upayment::payment_confirmation');
     }
@@ -21,7 +21,7 @@ class PaymentController extends Controller
     /**
      * @param Request $request
      */
-    public function connectToBillplz(Request $request)
+    public function onConnectToBillplz(Request $request)
     {
         $invoice = new Invoice(
             1.00, 'testing', 'testing', 'sample@yahoo.com'
@@ -43,7 +43,7 @@ class PaymentController extends Controller
     /**
      * @param Request $request
      */
-    public function paymentCompleted(Request $request)
+    public function onPaymentCompleted(Request $request)
     {
 
         if ($request->has('billplz')) {

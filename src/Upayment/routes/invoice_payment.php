@@ -5,11 +5,11 @@ Route::name('upayment.')
     ->group(function () {
 
         Route::name('confirmation')->get('upayment/confirmation')
-            ->uses('PaymentController@paymentConfirmation');
+            ->uses('PaymentController@onPaymentConfirm');
 
         Route::name('request')->post('upayment/request')
-            ->uses('PaymentController@connectToBillplz');
+            ->uses('PaymentController@onConnectToBillplz');
 
         Route::name('completed')->get('upayment/completed')
-            ->uses('PaymentController@paymentCompleted');
+            ->uses('PaymentController@onPaymentCompleted');
     });

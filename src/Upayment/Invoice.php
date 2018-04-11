@@ -1,6 +1,6 @@
 <?php
 
-namespace Upayment\Invoices;
+namespace Upayment;
 
 class Invoice
 {
@@ -142,6 +142,11 @@ class Invoice
     public function email()
     {
         return $this->email;
+    }
+
+    public function __toString()
+    {
+        return __class__;
     }
 
 }
