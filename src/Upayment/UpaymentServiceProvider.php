@@ -4,7 +4,7 @@ namespace Upayment\Invoices;
 
 use Illuminate\Support\ServiceProvider;
 
-class InvoiceServiceProvider extends ServiceProvider
+class UpaymentServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -25,6 +25,7 @@ class InvoiceServiceProvider extends ServiceProvider
     public function register()
     {
         $this->loadOurConfig();
+        $this->publishAssetsToClient();
     }
 
     protected function loadOurViews()
@@ -46,11 +47,13 @@ class InvoiceServiceProvider extends ServiceProvider
         );
     }
 
-    protected function publishViewsClient()
+    protected function publishAssetsToClient()
     {
         $this->publishes([
-            __DIR__ . '/views/payment_complete'     => resource_path('views/vendor/payment_complete'),
-            __DIR__ . '/views/payment_confirmation' => resource_path('views/vendor/payment_confirmation'),
+            __DIR__ . '/views'            => resource_path('views/vendor/upayment'),
+            __DIR__ . '/config'           => config_path(),
+            __DIR__ . '/Http/Controllers' => app_path('Http/Controllers/Upayment'),
+            __DIR__ . '/Services'         => app_path('Services/Upayment'),
         ]);
     }
 }
