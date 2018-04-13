@@ -6,6 +6,12 @@ use Illuminate\Support\ServiceProvider;
 
 class UpaymentServiceProvider extends ServiceProvider
 {
+
+    /**
+     * @var mixed
+     */
+    protected $defer = true;
+
     /**
      * Bootstrap any application services.
      *
@@ -50,10 +56,8 @@ class UpaymentServiceProvider extends ServiceProvider
     protected function publishAssetsToClient()
     {
         $this->publishes([
-            __DIR__ . '/views'            => resource_path('views/vendor/upayment'),
-            __DIR__ . '/config'           => config_path(),
-            __DIR__ . '/Http/Controllers' => app_path('Http/Controllers/Upayment'),
-            __DIR__ . '/Services'         => app_path('Services/Upayment'),
+            __DIR__ . '/views'  => resource_path('views/vendor/upayment'),
+            __DIR__ . '/config' => config_path(),
         ]);
     }
 }
