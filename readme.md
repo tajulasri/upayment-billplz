@@ -1,5 +1,7 @@
 # Billplz payment boilerplate for Laravel
 
+[![codecov](https://codecov.io/gh/tajulasri/upayment-billplz/branch/master/graph/badge.svg)](https://codecov.io/gh/tajulasri/upayment-billplz)
+
 ## Installation 
 
 ### 1. Add into composer.json
